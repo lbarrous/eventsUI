@@ -13,5 +13,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
+    console.log("🚀 ~ file: profile.component.ts ~ line 16 ~ ProfileComponent ~ ngOnInit ~ this.currentUser", this.currentUser)
   }
 }

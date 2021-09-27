@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_services/user.service';
+import { EventsService } from '../_services/event.service';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +9,10 @@ import { UserService } from '../_services/user.service';
 export class HomeComponent implements OnInit {
   content?: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private eventService: EventsService) { }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe(
+    this.eventService.getEvents().subscribe(
       data => {
         this.content = data;
       },
