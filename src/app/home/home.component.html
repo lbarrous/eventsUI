@@ -1,5 +1,24 @@
 <div class="container">
-  <header class="jumbotron">
-    <p>{{ content }}</p>
-  </header>
+  <h1>Events</h1>
+  <alert></alert>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Headline</th>
+      <th scope="col">Description</th>
+      <th scope="col">Status</th>
+      <th scope="col">Start Date</th>
+      <th *ngIf="isLoggedIn" scope="col">Subscribe</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let event of events">
+      <th scope="row">{{ event.headline }}</th>
+      <td>{{ event.description }}</td>
+      <td>{{ event.status }}</td>
+      <td>{{ formatDate(event.startDate) }}</td>
+      <td *ngIf="isLoggedIn"><button (click)="subscribeToEvent(event.eventId)" type="button" class="btn btn-primary">Subscribe</button></td>
+    </tr>
+    </tbody>
+  </table>
 </div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>My subscriptions</h1>
+    <alert></alert>
+    <div *ngIf="totalSubscriptions > 0; else elseBlock">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Headline</th>
+              <th scope="col">Description</th>
+              <th scope="col">Status</th>
+              <th scope="col">Start Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let event of userEvents">
+              <th scope="row">{{ event.headline }}</th>
+              <td>{{ event.description }}</td>
+              <td>{{ event.status }}</td>
+              <td>{{ formatDate(event.startDate) }}</td>
+            </tr>
+            </tbody>
+          </table>
+    </div>
+    <ng-template #elseBlock>No active subscriptions.</ng-template>
+    
+  </div>

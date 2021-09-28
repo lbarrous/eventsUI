@@ -8,8 +8,6 @@ import { TokenStorageService } from './_services/token-storage.service';
 })
 export class AppComponent implements OnInit {
   isLoggedIn = false;
-  showAdminBoard = false;
-  showModeratorBoard = false;
   email?: string;
 
   constructor(private tokenStorageService: TokenStorageService) { }
