@@ -28,9 +28,7 @@ export class MyEventsComponent implements OnInit {
     this.eventService.getEventsByUser().subscribe(
       (data) => {
         this.userEvents = data;
-        console.log("🚀 ~ file: my-events.component.ts ~ line 31 ~ MyEventsComponent ~ ngOnInit ~ this.userEvents", this.userEvents)
         this.totalSubscriptions = this.userEvents?.length;
-        console.log("🚀 ~ file: my-events.component.ts ~ line 33 ~ MyEventsComponent ~ ngOnInit ~ this.totalSubscriptions", this.totalSubscriptions)
       },
       (err) => {
         this.hasError = true;

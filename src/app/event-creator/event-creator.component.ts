@@ -28,7 +28,6 @@ export class EventCreatorComponent implements OnInit {
 
     this.eventsService.createEvent(headline, description, location, startDate).subscribe(
       data => {
-        console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
       },
