@@ -8,6 +8,9 @@
       <li *ngIf="isLoggedIn" class="nav-item">
         <a href="/subscriptions" class="nav-link" routerLink="subscriptions">Subscriptions</a>
       </li>
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <a href="/createEvent" class="nav-link" routerLink="createEvent">Create Event</a>
+      </li>
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">

@@ -1,0 +1,80 @@
+<div class="col-md-12">
+    <div class="card card-container">
+      <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="headline">Headline</label>
+          <input
+            type="text"
+            class="form-control"
+            name="headline"
+            [(ngModel)]="form.headline"
+            required
+            #headline="ngModel"
+          />
+          <div class="alert-danger" *ngIf="headline.errors && f.submitted">
+            <div *ngIf="headline.errors.required">Headline is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input
+              type="text"
+              class="form-control"
+              name="description"
+              [(ngModel)]="form.description"
+              required
+              #description="ngModel"
+            />
+            <div class="alert-danger" *ngIf="description.errors && f.submitted">
+              <div *ngIf="description.errors.required">Description is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              name="location"
+              [(ngModel)]="form.location"
+              required
+              #location="ngModel"
+            />
+            <div class="alert-danger" *ngIf="location.errors && f.submitted">
+              <div *ngIf="location.errors.required">Location is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input
+              type="text"
+              class="form-control"
+              name="startDate"
+              [(ngModel)]="form.startDate"
+              required
+              #startDate="ngModel"
+            />
+            <div class="alert-danger" *ngIf="startDate.errors && f.submitted">
+              <div *ngIf="startDate.errors.required">Start Date is required</div>
+            </div>
+          </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Create event</button>
+        </div>
+  
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Event creation failed!<br />{{ errorMessage }}
+        </div>
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your event creation is successful!
+      </div>
+    </div>
+  </div>
+  

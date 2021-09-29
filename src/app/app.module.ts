@@ -15,6 +15,11 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyEventsComponent } from './my-events/my-events.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { environment } from 'src/environments/environment';
+import { EventCreatorComponent } from './event-creator/event-creator.component';
+
+const config: SocketIoConfig = { url: environment.socketURL };
 
 @NgModule({
   declarations: [
@@ -24,6 +29,7 @@ import { MyEventsComponent } from './my-events/my-events.component';
     HomeComponent,
     ProfileComponent,
     MyEventsComponent,
+    EventCreatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,8 @@ import { MyEventsComponent } from './my-events/my-events.component';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule,
-    AlertModule
+    AlertModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],

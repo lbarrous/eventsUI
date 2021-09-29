@@ -5,6 +5,10 @@ import { environment } from 'src/environments/environment';
 
 const API_URL = environment.apiURL;
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -25,5 +29,14 @@ export class EventsService {
       {},
       { responseType: 'text' }
     );
+  }
+
+  createEvent(headline: string, description: string, location: string, startDate: string): Observable<any> {
+    return this.http.post(API_URL + 'events', {
+      headline,
+      description,
+      location,
+      startDate
+    }, httpOptions);
   }
 }

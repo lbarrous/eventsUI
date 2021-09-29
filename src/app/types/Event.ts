@@ -3,5 +3,5 @@ export interface Event {
     status: string;
     headline: string;
     description: string;
-    startDate: number;
+    startDate: string;
   }
