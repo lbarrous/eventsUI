@@ -28,6 +28,7 @@ export class MyEventsComponent implements OnInit {
     this.eventService.getEventsByUser().subscribe(
       (data) => {
         this.userEvents = data;
+        // @ts-ignore
         this.totalSubscriptions = this.userEvents?.length;
       },
       (err) => {

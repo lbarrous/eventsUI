@@ -19,8 +19,10 @@ export class HomeComponent implements OnInit {
   isLoggedIn = false;
   hasError = false;
   errorMessage = '';
+  // @ts-ignore
   notifications: Event[];
   showedNotifications: string[] = [];
+  // @ts-ignore
   private notificationsSub: Subscription;
 
   options = {
@@ -41,6 +43,7 @@ export class HomeComponent implements OnInit {
     }
     if (this.isLoggedIn) {
       this.notificationsSub = this.notificationService.getNotifications()
+      // @ts-ignore
       .subscribe((data: Event[]) => {
         this.notifications = data.filter(event => !this.showedNotifications.includes(event.eventID));
         this.notifications.map(event => {

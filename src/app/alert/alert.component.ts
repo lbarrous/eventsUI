@@ -11,7 +11,9 @@ export class AlertComponent implements OnInit, OnDestroy {
     @Input() fade = true;
 
     alerts: Alert[] = [];
+    // @ts-ignore
     alertSubscription: Subscription;
+    // @ts-ignore
     routeSubscription: Subscription;
 
     constructor(private router: Router, private alertService: AlertService) { }
@@ -26,6 +28,7 @@ export class AlertComponent implements OnInit, OnDestroy {
                     this.alerts = this.alerts.filter(x => x.keepAfterRouteChange);
 
                     // remove 'keepAfterRouteChange' flag on the rest
+                    // @ts-ignore
                     this.alerts.forEach(x => delete x.keepAfterRouteChange);
                     return;
                 }
@@ -59,6 +62,7 @@ export class AlertComponent implements OnInit, OnDestroy {
 
         if (this.fade) {
             // fade out alert
+            // @ts-ignore
             this.alerts.find(x => x === alert).fade = true;
 
             // remove alert after faded out
