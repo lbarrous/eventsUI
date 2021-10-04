@@ -11,7 +11,8 @@ export class EventCreatorComponent implements OnInit {
     headline: null,
     description: null,
     location: null,
-    startDate: null
+    startDate: null,
+    status: null
   };
   isSuccessful = false;
   isSignUpFailed = false;
@@ -24,9 +25,9 @@ export class EventCreatorComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { headline, description, location, startDate } = this.form;
+    const { headline, description, location, startDate, status } = this.form;
 
-    this.eventsService.createEvent(headline, description, location, startDate).subscribe(
+    this.eventsService.createEvent(headline, description, location, startDate, status).subscribe(
       data => {
         this.isSuccessful = true;
         this.isSignUpFailed = false;

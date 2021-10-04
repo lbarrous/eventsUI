@@ -17,7 +17,7 @@
       <td>{{ event.description }}</td>
       <td>{{ event.status }}</td>
       <td>{{ formatDate(event.startDate) }}</td>
-      <td *ngIf="isLoggedIn"><button (click)="subscribeToEvent(event.eventId)" type="button" class="btn btn-primary">Subscribe</button></td>
+      <td *ngIf="isLoggedIn"><button (click)="subscribeToEvent(event.eventID)" type="button" class="btn btn-primary">Subscribe</button></td>
     </tr>
     </tbody>
   </table>

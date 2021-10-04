@@ -63,6 +63,15 @@
               <div *ngIf="startDate.errors.required">Start Date is required</div>
             </div>
           </div>
+          <div class="form-group">
+            <p>
+              <input required #status="ngModel" type="radio" value="PUBLIC" name="status" [(ngModel)]="form.status" > Public
+              <input required #status="ngModel" type="radio" value="PRIVATE" name="status" [(ngModel)]="form.status" > Private
+              <input required #status="ngModel" type="radio" value="DRAFT" name="status" [(ngModel)]="form.status" > Draft
+           </p>
+          </div>
+          
+      
         <div class="form-group">
           <button class="btn btn-primary btn-block">Create event</button>
         </div>

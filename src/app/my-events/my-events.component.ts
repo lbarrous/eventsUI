@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../alert/alert.service';
+import { Event } from '../types/Event';
 import formatDate from '../_helpers/date.utils';
 import { EventsService } from '../_services/event.service';
 
@@ -14,7 +15,7 @@ export class MyEventsComponent implements OnInit {
     keepAfterRouteChange: false,
   };
 
-  userEvents?: Event[];
+  events?: Event[];
   totalSubscriptions: number = 0;
   hasError = false;
   errorMessage = '';
@@ -27,9 +28,9 @@ export class MyEventsComponent implements OnInit {
   ngOnInit(): void {
     this.eventService.getEventsByUser().subscribe(
       (data) => {
-        this.userEvents = data;
+        this.events = data;
         // @ts-ignore
-        this.totalSubscriptions = this.userEvents?.length;
+        this.totalSubscriptions = this.events?.length;
       },
       (err) => {
         this.hasError = true;

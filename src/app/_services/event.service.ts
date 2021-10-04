@@ -31,12 +31,13 @@ export class EventsService {
     );
   }
 
-  createEvent(headline: string, description: string, location: string, startDate: string): Observable<any> {
+  createEvent(headline: string, description: string, location: string, startDate: string, status: string): Observable<any> {
     return this.http.post(API_URL + 'events', {
       headline,
       description,
       location,
-      startDate
+      startDate,
+      status
     }, httpOptions);
   }
 }
